@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form >
+    <label for="min">Minimum değer</label><br>
+    <input type="range" min="1" max="100" id="min"> <input type="text"  id="mingöst" disabled><br>
+    <label for="max">Maximum Değer</label><br>
+    <input type="range" min="1" max="100" id="max"><input type="text"  id="maxgöst" disabled><br><br>
+</form>         
+    <button onclick="yakala()">Uret</button><br>
+    <hr>
+       
+       
+        <label id="s">Rastgele Sayı</label>
+
+    <script>
+
+            var mins =document.getElementById("min");
+            
+            var mingöst =document.getElementById("mingöst");
+
+
+          mins.addEventListener("input", function () {
+          mingöst.value = mins.value;
+          });
+
+          var maxs=document.getElementById("max");
+          var maxg=document.getElementById("maxgöst");
+          maxs.addEventListener("input",function(){maxg.value=maxs.value})
+
+        function yakala(){
+
+            var min =parseFloat(document.getElementById("min").value);
+          
+            var max =parseFloat(document.getElementById("max").value);
+           
+            
+           var s=Math.floor(Math.random() * (max - min)) + min;
+           document.getElementById("s").textContent=" Rastgele Sayı : "+s;
+
+
+        }
+    </script>
+    
+</body>
+</html>
